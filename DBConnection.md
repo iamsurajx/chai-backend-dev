@@ -1,4 +1,4 @@
-#Following Steps are only to make connection with MongoDB Atlas.
+# Following Steps are only used to make connections with MongoDB Atlas.
 
 ##### Folder Structure:
 
@@ -25,18 +25,18 @@ import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 
 dotenv.config({
-path: './env'
+      path: './env'
 })
 
 ; (() => {
-connectDB()
+      connectDB()
 })()
 ```
 
 ## .env
-```
+```bash
 PORT = 8000
-MONGODB_URL = mongodb+srv://surajdev:M81wjfuckRZifQutryH@cluster0.6hqfg9t.mongodb.net
+MONGODB_URL = mongodb+srv://surajdevapp:M8sgddwjfuckRZifQuertregyyH@cluster6.6huurje9t.mongodb.net
 
 CORS*ORIGIN=* // kahi se v request aaye koi matlab nahi to \_ ka use karte hai
 ```
