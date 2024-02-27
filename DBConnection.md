@@ -1,29 +1,26 @@
-##
+#Following Steps are only to make connection with MongoDB Atlas.
+
+##### Folder Structure:
+
+      |src
+      ├── db
+      |    |----index.js
+      |---index.js
+      └── constants.js
+      |── .env
+      └── package.json
 
 ### constants.js
-
+```javascript
 export const DB_NAME = "databasekanaam"
+```
 
 ### src/db/index.js
 
-import mongoose from "mongoose";
-
-import { DB_NAME } from "../constants.js";
-
-const connectDB = async () => {
-try {
-const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`)
-console.log(`\n MongoDB connected !! DB HOST:${connectionInstance.connection.host}`);
-} catch (error) {
-console.log("MONGODB Connection FAILED", error)
-process.exit(1)
-}
-}
-
-export default connectDB
 
 ### index.js OR server.js
 
+```javascript
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 
@@ -34,3 +31,21 @@ path: './env'
 ; (() => {
 connectDB()
 })()
+```
+
+## .env
+```
+PORT = 8000
+MONGODB_URL = mongodb+srv://surajdev:M81wjfuckRZifQutryH@cluster0.6hqfg9t.mongodb.net
+
+CORS*ORIGIN=* // kahi se v request aaye koi matlab nahi to \_ ka use karte hai
+```
+
+## packeg.json
+```json
+
+"scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
