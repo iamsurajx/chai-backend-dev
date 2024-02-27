@@ -1,3 +1,14 @@
+![alt text](<Screenshot 2024-02-27 115213.png>)
+
+##### Folder Structure
+```bash
+models
+  |----->user.model.js
+  |----->video.model.js
+```
+
+### user.model.js
+```javascript
 import mongoose, { Schema } from "mongoose";
 // jwt ik bearer tooken hai jo jo ye sahi bolta hai ham use maan lete hai.
 import jwt from "jsonwebtoken"
@@ -108,3 +119,67 @@ userSchema.methods.generateAccessToken = async function () {
 
 // ========================
 export const User = mongoose.model("User", userSchema);
+
+```
+### video.model.js
+```javascript
+import mongoose, { Schema } from "mongoose";
+
+
+const videoSchema = new Schema(
+  {
+    videoFile: {
+      type: String,
+      required: true,
+    },
+    thumbnail: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    duration: {
+      type: Number,
+      required: true,
+    },
+    views: {
+      type: Number,
+      default: 0
+    },
+    isPublished: {
+      type: Boolean,
+      default: true
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    }
+
+  },
+  {
+    timestamp: true
+  }
+)
+
+export const User = mongoose.model("User", videoSchema)
+
+```
+
+## .env
+```bash
+# 
+ACCESS_TOKEN_SECRET=
+
+ACCESS_TOKEN_EXPIRY=1d
+
+REFRESH_TOKEN_SECRET= 
+
+REFRESH_TOKEN_EXPIRY=10d
+
+```
