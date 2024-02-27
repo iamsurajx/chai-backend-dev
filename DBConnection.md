@@ -1,4 +1,4 @@
-#Following Steps are only to make connection with MongoDB Atlas.
+# Following Steps are only used to make connections with MongoDB Atlas.
 
 ##### Folder Structure:
 
