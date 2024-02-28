@@ -55,8 +55,6 @@ class ApiResponse {
 ### asyncHandler.js
 
 ```javascript
-import { Promise } from "mongoose";
-
 //production grade code promise se handle kiya jata hai.
 const asyncHandler = (requestHandler) => {
   (req, res, next) => {
