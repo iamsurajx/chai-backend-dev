@@ -1,14 +1,11 @@
-import { Promise } from "mongoose"
-
-//production grade code promise se handle kiya jata hai.
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
-    Promise.resolve(requestHandler(req, res, next)).catch((error) => next(err))
+  return (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
   }
 }
 
-export { asyncHandler }
 
+export { asyncHandler }
 
 
 

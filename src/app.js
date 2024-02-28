@@ -20,10 +20,18 @@ app.use(express.json({ limit: '16kb' }))
 app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 
 // kayi baar image or pdf file ka request aaya orme usko store karna chata hoon to 'static' ka use karte hai..
-app.use(express.static("public"))
+app.use(express.static("public"));
+
+app.use(cookieParser());
 
 
-app.use(cookieParser())
+// router import
+import userRouter from "./routes/user.routes.js"
+
+// routers declaration
+app.use("/api/v1/users", userRouter)
+
+// http://localhost:8000/api/v1/users/register
 
 
 export { app }
