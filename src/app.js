@@ -25,9 +25,12 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 
+//mostly route ko uuper me hi import karte hai par yaha yaha par ham route ka segregate kar rahe hai. 
 // router import
 import userRouter from "./routes/user.routes.js"
 
+// Import
+//pehale ham app.get() use karte the Q ki ham yahi par uska routes banate the par avi ham routes ko import kar rahe hai so han app.use() likh rahe hai.ab sare routes and router use karsakte hai
 // routers declaration
 app.use("/api/v1/users", userRouter)
 
